@@ -40,16 +40,11 @@ Foreach-Object {
                     write-output "Renamed $oldfilename_full to $newfilename_full"
                     break
                 }else{
-                    $newinc = "_" + $i++
-                    $curinc = "_" + $i
-                    if ($curinc > 0){
-                        $newfilename_full = $newfilename_full -replace $curinc,$newinc
-                    }
-                    else{
-                        $i++
-                        $newfilename_full = $newfilename_full + "_" + $i
-                    }
                     $i++
+                    $rn_rule = $rn_rule + "_" + $i
+                    $newfilename = $_.Name -replace "$r_n",$rn_rule
+                    $newfilename_tmp = $src + "\" + $newfilename
+                    $newfilename_full= $des + "\" + $newfilename
                 }
             }
         }
